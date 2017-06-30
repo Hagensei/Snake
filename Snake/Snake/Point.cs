@@ -32,16 +32,22 @@ namespace Snake
 
         public void Move(int offset, Direction direction)
         {
-            if (direction == Direction.LEFT) x += offset;
-            else if (direction == Direction.RIGHT) x -= offset;
-            else if (direction == Direction.UP) y -= offset;
-            else if (direction == Direction.DOWN) y += offset;
+            if (direction == Direction.LEFT) x = x + offset;
+            else if (direction == Direction.RIGHT) x = x - offset;
+            else if (direction == Direction.UP) y = y - offset;
+            else if (direction == Direction.DOWN) y = y + offset;
         }
 
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
+        }
+
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
         }
 
         public override string ToString()
