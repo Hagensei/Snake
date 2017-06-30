@@ -26,6 +26,10 @@ namespace Snake
 
             VerticalLine lineRightV = new VerticalLine(1, 37, 149, '#');
             lineRightV.Draw();
+
+            Point tail = new Point(5, 7, '*');
+            Snake snake = new Snake(tail, 10, Direction.LEFT);
+            snake.Draw();
         }
     }
 }
