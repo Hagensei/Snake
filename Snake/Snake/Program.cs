@@ -28,17 +28,20 @@ namespace Snake
             VerticalLine lineRightV = new VerticalLine(1, 37, 149, '#');
             lineRightV.Draw();
 
-            Point tail = new Point(5, 7, '*');
-            Snake snake = new Snake(tail, 5, Direction.RIGHT);
+            Point p = new Point(5, 7, '*');
+            Snake snake = new Snake(p, 5, Direction.RIGHT);
             snake.Draw();
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300); snake.Move();
-            Thread.Sleep(300); snake.Move();
-            Thread.Sleep(300); snake.Move();
-            Thread.Sleep(300); snake.Move();
-            Thread.Sleep(300);
+
+            while(true)
+            {
+                if(Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
+                Thread.Sleep(100);
+                snake.Move();                   
+            }
         }
     }
 }
